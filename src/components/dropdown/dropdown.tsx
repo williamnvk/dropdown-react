@@ -5,10 +5,9 @@ import s from "./style.module.scss";
 
 const Dropdown: FC<DropdownProps> = ({
   open = false,
-  onClose,
+  toggle,
   icon,
   children,
-  onClick,
   className,
   ...props
 }) => {
@@ -27,6 +26,14 @@ const Dropdown: FC<DropdownProps> = ({
       : s["dropdown__content--is-hidden"]
   );
 
+  /*
+  TODOS
+  [ ] adicionar effect no body...
+     ...para que qualquer clique fora execute o onClose
+  [ ] usar fowardRef para que o ref fique disponível para...
+      ...acessado no componente pai
+  */ 
+
   const interceptOnClick = (e: MouseEvent<HTMLButtonElement>) => {
     // @ts-ignore desculpe
     const coordinates = buttonRef.current.getBoundingClientRect();
@@ -36,7 +43,7 @@ const Dropdown: FC<DropdownProps> = ({
     const buttonX = coordinates.x + coordinates.width;
     setX(contentSize.width > buttonX ? "left" : "right");
 
-    if (onClick) onClick(e);
+    if (toggle) toggle(e);
   };
 
   return (

@@ -1,9 +1,12 @@
 import { ComponentType, HTMLAttributes, HTMLProps, ReactNode } from "react";
 
-export interface DropdownProps extends HTMLAttributes<HTMLButtonElement> {
+// estou omitindo o parametro onClick, pois, prioritariamente...
+// o toggle e meu principal efeito (porem, pode usar o mousedown tambem)
+export interface DropdownProps
+  extends Omit<HTMLAttributes<HTMLButtonElement>, "onClick"> {
   icon: ReactNode;
   open?: boolean;
-  onClose: () => void;
+  toggle: () => void;
 }
 
 export interface DropdownItemProps
