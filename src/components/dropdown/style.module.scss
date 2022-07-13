@@ -1,0 +1,36 @@
+@import "../../theme/utilities/variables";
+
+.dropdown {
+  position: relative;
+  width: max-content;
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: $black900;
+    transition: transform 0.1s, filter 0.1s;
+  }
+
+  &--is-opened {
+    background-color: blue;
+  }
+
+  &__content {
+    width: max-content;
+
+    &--is-visible {
+      visibility: visible;
+      position: absolute;
+      background-color: orange;
+    }
+
+    &--is-hidden {
+      visibility: hidden;
+    }
+  }  
+}
+
+.dropdown__item {
+  background-color: red;
+}
