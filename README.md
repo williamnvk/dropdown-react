@@ -1,2 +1,3 @@
 # dropdown-react
-Created with CodeSandbox
+
+React + TypeScript + SCSS + CSS Modules

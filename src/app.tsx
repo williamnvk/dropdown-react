@@ -28,7 +28,7 @@ export default function App() {
         toggle={toggleOne}
         icon={<MoreIcon />}
       >
-        <DropdownItem href="/go-to-rename-page">Rename</DropdownItem>
+        <DropdownItem href="/">Rename</DropdownItem>
         <DropdownItem onClick={() => alert(`delete pressed`)}>
           Delete
         </DropdownItem>
@@ -46,7 +46,7 @@ export default function App() {
         toggle={toggleTwo}
         icon={<MoreIcon />}
       >
-        <DropdownItem href="/go-to-rename-page">Rename</DropdownItem>
+        <DropdownItem href="/">Rename</DropdownItem>
         <DropdownItem onClick={() => alert(`delete pressed`)}>
           Delete
         </DropdownItem>

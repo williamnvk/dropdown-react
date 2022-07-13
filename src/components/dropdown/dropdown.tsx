@@ -1,7 +1,9 @@
 import React, { MouseEvent, FC, useRef, useState } from "react";
 import cn from "classnames";
-import type { DropdownProps } from ".";
+import { DropdownProps, POSITION_LEFT, POSISION_RIGHT } from ".";
 import s from "./style.module.scss";
+
+type PositionX = typeof POSITION_LEFT | typeof POSISION_RIGHT;
 
 const Dropdown: FC<DropdownProps> = ({
   open = false,
@@ -14,7 +16,7 @@ const Dropdown: FC<DropdownProps> = ({
   const buttonRef = useRef();
   const contentRef = useRef();
 
-  const [x, setX] = useState<"left" | "right">("right");
+  const [x, setX] = useState<PositionX>(POSISION_RIGHT);
 
   const openedCss = open && s["dropdown--is-opened"];
   const rootCss = cn(s.dropdown);
@@ -29,12 +31,13 @@ const Dropdown: FC<DropdownProps> = ({
   /*
   TODOS
   [ ] adicionar effect no body...
-     ...para que qualquer clique fora execute o onClose
+     ...para que qualquer clique fora execute o onClose;
   [ ] usar fowardRef para que o ref fique disponível para...
-      ...acessado no componente pai
-  */ 
+      ...ser acessado no componente pai;
+  [ ] adicionar regra do eslint para ignorar o ref dos elementos;
+  */
 
-  const interceptOnClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const interceptOnClick = (_e: MouseEvent<HTMLButtonElement>) => {
     // @ts-ignore desculpe
     const coordinates = buttonRef.current.getBoundingClientRect();
     // @ts-ignore desculpe denovo
@@ -43,7 +46,7 @@ const Dropdown: FC<DropdownProps> = ({
     const buttonX = coordinates.x + coordinates.width;
     setX(contentSize.width > buttonX ? "left" : "right");
 
-    if (toggle) toggle(e);
+    if (toggle) toggle();
   };
 
   return (
