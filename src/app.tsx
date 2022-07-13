@@ -94,3 +94,11 @@ export default function App() {
     </div>
   );
 }
+
+/*
+  TODOS
+  [ ] atributos aria para acessibilidade
+  [ ] ids nos elementos clicaveis para mapeamento de testes...
+      ...automatizados;
+  [ ] implementar um hook, tipo useDropdown;
+  */
