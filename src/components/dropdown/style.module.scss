@@ -8,12 +8,16 @@
     appearance: none;
     cursor: pointer;
     border: none;
-    outline: none;
     margin: 0;
     padding: 1rem;
+    outline: none;
     font-size: 1rem;
     color: $white100;
     background: $black400;
+
+    &:focus {
+      background-color: red;
+    }
   }
 
   &--is-opened {
@@ -53,5 +57,9 @@
 
   &:hover {
     background-color: $blue100;
+  }
+
+  &:active     {
+    background-color: $blue200;
   }
 }
